@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Client1</title>
+  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+
+<p class="notice"><%= notice %></p>
+
+<p class="alert"><%= alert %></p>
+
+<% if session[:user_id]!=nil %>
+
+    <p><%= link_to '退出', logout_path, method: :delete %></p>
+<% else %>
+    <%= link_to '登录', 'auth/login' %>
+    <%= link_to '注册', 'auth/register' %>
+<% end %>
+
+
+<p><%= link_to 'page', page_index_path %></p>
+
+<p><a href="/">首页</a></p>
+
+
+
+<%= yield %>
+
+</body>
+</html>
